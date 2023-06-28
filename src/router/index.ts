@@ -19,11 +19,11 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('@/layouts/Login.vue'),
+    component: () => import('@/layouts/LoginLayout.vue'),
   },
   {
     path: '/create-account',
-    component: () => import('@/layouts/CreateAccount.vue'),
+    component: () => import('@/layouts/CreateAccountLayout.vue'),
   },
 ];
 

@@ -75,7 +75,7 @@
 
 <script lang="ts">
 export default {
-  name: 'app-login',
+  name: 'login-layout',
   data() {
     return {
       form: {
