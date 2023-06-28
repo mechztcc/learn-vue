@@ -5,16 +5,29 @@
  */
 
 // Components
-import App from './App.vue'
+import App from './App.vue';
 
 // Composables
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 
 // Plugins
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from '@/plugins';
+import axios from 'axios';
 
-const app = createApp(App)
+const app = createApp(App);
 
-registerPlugins(app)
+registerPlugins(app);
 
-app.mount('#app')
+app.mount('#app');
+
+axios.interceptors.request.use((data) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    data.headers.Authorization = token;
+  }
+  return data;
+});
+
+axios.interceptors.response.use((response) => {
+  return response.data;
+});

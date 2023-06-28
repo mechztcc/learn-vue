@@ -85,7 +85,8 @@
   </v-container>
 </template>
 <script lang="ts">
-import axios from 'axios';
+import { test } from '../services/UserService';
+
 export default {
   name: 'create-account-layout',
   data() {
@@ -116,11 +117,7 @@ export default {
     async validateForm() {
       const { valid } = await (this.$refs as any).form.validate();
       if (valid) {
-        const response = await axios.get(
-          'https://pokeapi.co/api/v2/pokemon/ditto'
-        );
-
-        console.log(response);
+        test();
       }
     },
     changeVisibility() {
