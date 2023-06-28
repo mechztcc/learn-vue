@@ -55,7 +55,14 @@
           class="mt-5"
         ></v-text-field>
 
-        <v-btn size="x-large" color="secondary" class="w-100">Sign up</v-btn>
+        <v-btn
+          size="x-large"
+          color="secondary"
+          class="w-100 mt-5"
+          @click="validateForm()"
+        >
+          Sign up
+        </v-btn>
       </v-form>
 
       <div class="d-flex ma-4">
@@ -85,21 +92,29 @@ export default {
       form: {
         document: {
           value: '',
-          documentRules: [],
+          documentRules: [
+            (doc: string) => !!doc || 'Document number is required',
+            (doc: string) =>
+              (doc && doc.length >= 11) ||
+              'Document require at least 11 characteres',
+          ],
         },
         name: {
           value: '',
-          nameRules: [],
+          nameRules: [(name: string) => !!name || 'Name is required'],
         },
         password: {
           value: '',
-          passwordRules: [],
+          passwordRules: [(pass: string) => !!pass || 'Password is required'],
           isHidden: true,
         },
       },
     };
   },
   methods: {
+    validateForm() {
+      this.$refs.form.validate();
+    },
     changeVisibility() {
       this.form.password.isHidden = !this.form.password.isHidden;
     },
