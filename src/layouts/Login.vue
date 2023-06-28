@@ -17,6 +17,7 @@
         ></v-text-field>
 
         <v-text-field
+          v-if="form.passType"
           v-model="form.password"
           :rules="form.rules.passwordRules"
           name="password"
@@ -26,12 +27,30 @@
           class="mt-5"
           prepend-inner-icon="mdi-lock"
           append-inner-icon="mdi-eye"
-          @click:append-inner="console.log('Clicado')"
+          type="password"
+          @click:append-inner="changeVisibility()"
+        ></v-text-field>
+
+        <v-text-field
+          v-if="!form.passType"
+          v-model="form.password"
+          :rules="form.rules.passwordRules"
+          name="password"
+          label="Password"
+          variant="outlined"
+          hint="Enter your Password"
+          class="mt-5"
+          prepend-inner-icon="mdi-lock"
+          append-inner-icon="mdi-eye"
+          type="text"
+          @click:append-inner="changeVisibility()"
         ></v-text-field>
 
         <h4 class="text-end ma-3 text-secondary">Forgot password?</h4>
 
-        <v-btn size="x-large" color="secondary w-100">Sign in</v-btn>
+        <v-btn size="x-large" color="secondary w-100" @click="validateForm()"
+          >Sign in</v-btn
+        >
       </v-form>
 
       <div class="d-flex ma-4">
@@ -60,17 +79,27 @@ export default {
       form: {
         document: '',
         password: '',
+        passType: true,
         rules: {
           documentRules: [
             (doc: string) => !!doc || 'Document is required',
             (doc: string) =>
-              (doc && doc.length > 11) ||
+              (doc && doc.length >= 11) ||
               'Document require at least 11 characteres',
           ],
           passwordRules: [(pass: string) => !!pass || 'Password is required'],
         },
       },
     };
+  },
+  methods: {
+    validateForm() {
+      this.$refs.form.validate();
+    },
+
+    changeVisibility() {
+      this.form.passType = !this.form.passType;
+    },
   },
 };
 </script>
