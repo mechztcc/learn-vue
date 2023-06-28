@@ -93,8 +93,12 @@ export default {
     };
   },
   methods: {
-    validateForm() {
-      this.$refs.form.validate();
+    async validateForm() {
+      const validation = await (this.$refs as any).form.validate();
+
+      if (validation.valid) {
+        alert('Sucesso');
+      }
     },
 
     changeVisibility() {
