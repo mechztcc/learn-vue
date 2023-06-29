@@ -38,7 +38,7 @@ axios.interceptors.response.use(
       title: 'Success',
     });
 
-    return response;
+    return response.data;
   },
   (error) => {
     notify({

@@ -18,7 +18,9 @@
       "vuetify"
     ],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@/shared": ["src/shared/*"],
+
     },
   },
   "include": [
@@ -26,6 +28,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "vite.config.ts"
+    "vite.config.ts",
+    "src/shared/services/**.ts"
   ]
 }

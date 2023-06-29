@@ -76,6 +76,7 @@
 <script lang="ts">
 import { ILogin } from '../types/login.interface';
 import { login } from '../services/UserService';
+import { save } from '../../shared/services/LocalStorageService';
 
 export default {
   name: 'login-layout',
@@ -110,8 +111,10 @@ export default {
         password: this.form.password,
       };
 
-      const response = await login(payload);
-      if (!response) {
+      const data = await login(payload);
+      save('token', data.token);
+
+      if (!data) {
         return;
       }
 
