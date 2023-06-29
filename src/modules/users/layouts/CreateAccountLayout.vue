@@ -128,12 +128,11 @@ export default {
       };
 
       const response = await createAccount(payload);
-
       if (!response) {
         return;
       }
 
-      this.$refs.form.reset();
+      (this.$refs as any).form.reset();
     },
     changeVisibility() {
       this.form.password.isHidden = !this.form.password.isHidden;

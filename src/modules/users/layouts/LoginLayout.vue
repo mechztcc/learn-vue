@@ -74,6 +74,9 @@
 </template>
 
 <script lang="ts">
+import { ILogin } from '../types/login.interface';
+import { login } from '../services/UserService';
+
 export default {
   name: 'login-layout',
   data() {
@@ -96,11 +99,23 @@ export default {
   },
   methods: {
     async validateForm() {
-      const validation = await (this.$refs as any).form.validate();
+      const { valid } = await (this.$refs as any).form.validate();
 
-      if (validation.valid) {
-        this.$router.push('/');
+      if (!valid) {
+        return;
       }
+
+      const payload: ILogin = {
+        document: this.form.document,
+        password: this.form.password,
+      };
+
+      const response = await login(payload);
+      if (!response) {
+        return;
+      }
+
+      this.$router.push('/');
     },
 
     changeVisibility() {
