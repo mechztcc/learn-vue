@@ -117,6 +117,9 @@ export default {
   methods: {
     async validateForm() {
       const { valid } = await (this.$refs as any).form.validate();
+      if (!valid) {
+        return;
+      }
 
       const payload: ICreateAccount = {
         name: this.form.name.value,
@@ -124,9 +127,13 @@ export default {
         password: this.form.password.value,
       };
 
-      if (valid) {
-        const response = await createAccount(payload);
+      const response = await createAccount(payload);
+
+      if (!response) {
+        return;
       }
+
+      this.$refs.form.reset();
     },
     changeVisibility() {
       this.form.password.isHidden = !this.form.password.isHidden;
