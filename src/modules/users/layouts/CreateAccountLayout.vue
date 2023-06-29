@@ -8,7 +8,7 @@
         </h4>
 
         <v-text-field
-          :model="form.name.value"
+          v-model="form.name.value"
           :rules="form.name.nameRules"
           name="name"
           label="Name"
@@ -18,7 +18,7 @@
         ></v-text-field>
 
         <v-text-field
-          :model="form.document.value"
+          v-model="form.document.value"
           :rules="form.document.documentRules"
           name="document"
           label="Document number"
@@ -85,7 +85,8 @@
   </v-container>
 </template>
 <script lang="ts">
-import { test } from '../services/UserService';
+import { createAccount } from '../services/UserService';
+import { ICreateAccount } from '../types/create-account.interface';
 
 export default {
   name: 'create-account-layout',
@@ -116,8 +117,15 @@ export default {
   methods: {
     async validateForm() {
       const { valid } = await (this.$refs as any).form.validate();
+
+      const payload: ICreateAccount = {
+        name: this.form.name.value,
+        document: this.form.document.value,
+        password: this.form.password.value,
+      };
+
       if (valid) {
-        test();
+        const response = await createAccount(payload);
       }
     },
     changeVisibility() {
