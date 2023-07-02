@@ -10,6 +10,10 @@ const routes = [
     path: '/create-account',
     component: () => import('@/modules/users/layouts/CreateAccountLayout.vue'),
   },
+  {
+    path: '/',
+    component: () => import('@/modules/home/layouts/HomeLayout.vue'),
+  },
 ];
 
 const router = createRouter({
