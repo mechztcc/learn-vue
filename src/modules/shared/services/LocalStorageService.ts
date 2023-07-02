@@ -5,3 +5,13 @@ export async function save(name: string, item: string) {
 export async function get(name: string) {
   return localStorage.getItem(name);
 }
+
+export function hasSession() {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+}

@@ -7,18 +7,13 @@
           @click.stop="store.onHandleSize()"
         ></v-app-bar-nav-icon>
         <template v-slot:append>
-          <v-btn icon="mdi-heart"></v-btn>
-
-          <v-btn icon="mdi-magnify"></v-btn>
-
-          <v-btn icon="mdi-dots-vertical"></v-btn>
+          <v-btn icon="mdi-bell-remove"></v-btn>
         </template>
       </v-app-bar>
 
-      <v-navigation-drawer mandatory v-model="store.isOpened">
+      <v-navigation-drawer :elevation="5" v-model="store.isOpened">
         <v-list>
           <v-list-item
-            prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
             title="Sandra Adams"
             subtitle="sandra_a88@gmailcom"
           ></v-list-item>
@@ -37,21 +32,24 @@
           ></v-list-item>
         </v-list>
       </v-navigation-drawer>
-
-      <v-main class="main"> <router-view /></v-main>
     </v-layout>
   </v-card>
 </template>
 <script lang="ts">
 import { useSidebarStore } from '../stores/Sidebar.store';
 
+
 export default {
   name: 'sidebar',
   data() {
     return {
       store: useSidebarStore(),
+      show: false,
     };
   },
+
+
+
   methods: {
     onNavigate(url: string) {
       this.$router.push(`/${url}`);
