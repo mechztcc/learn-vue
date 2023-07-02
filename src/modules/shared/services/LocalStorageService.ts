@@ -15,3 +15,7 @@ export function hasSession() {
     return false;
   }
 }
+
+export function clear() {
+  localStorage.clear();
+}

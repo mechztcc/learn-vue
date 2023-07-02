@@ -76,7 +76,7 @@
 <script lang="ts">
 import { ILogin } from '../types/login.interface';
 import { login } from '../services/UserService';
-import { save } from '../../shared/services/LocalStorageService';
+import { save, clear } from '../../shared/services/LocalStorageService';
 
 export default {
   name: 'login-layout',
@@ -97,6 +97,10 @@ export default {
         },
       },
     };
+  },
+
+  setup() {
+    clear();
   },
   methods: {
     async validateForm() {

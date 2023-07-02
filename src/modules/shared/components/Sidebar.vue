@@ -38,7 +38,6 @@
 <script lang="ts">
 import { useSidebarStore } from '../stores/Sidebar.store';
 
-
 export default {
   name: 'sidebar',
   data() {
@@ -47,8 +46,6 @@ export default {
       show: false,
     };
   },
-
-
 
   methods: {
     onNavigate(url: string) {
