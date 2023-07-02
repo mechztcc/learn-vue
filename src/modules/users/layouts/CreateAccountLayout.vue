@@ -133,6 +133,7 @@ export default {
       }
 
       (this.$refs as any).form.reset();
+      this.$router.push('/');
     },
     changeVisibility() {
       this.form.password.isHidden = !this.form.password.isHidden;
