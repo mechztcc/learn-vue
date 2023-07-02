@@ -1,17 +1,7 @@
 <template lang="">
   <v-card>
     <v-layout>
-      <v-navigation-drawer expand-on-hover rail>
-        <v-list>
-          <v-list-item
-            prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-            title="Sandra Adams"
-            subtitle="sandra_a88@gmailcom"
-          ></v-list-item>
-        </v-list>
-
-        <v-divider></v-divider>
-
+      <v-navigation-drawer mandatory v-model="store.isOpened">
         <v-list density="compact" nav>
           <v-list-item
             v-for="(item, index) in store.items"

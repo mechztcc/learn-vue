@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 export const useSidebarStore = defineStore('sidebar', {
   state: () => {
     return {
+      isOpened: true,
       items: [
         {
           name: 'Início',
@@ -45,6 +46,10 @@ export const useSidebarStore = defineStore('sidebar', {
         item.isActive = false;
       });
       this.items[index].isActive = true;
+    },
+
+    onHandleSize() {
+      this.isOpened = !this.isOpened;
     },
   },
 });
