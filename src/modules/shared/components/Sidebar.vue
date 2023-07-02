@@ -14,30 +14,40 @@
 
         <v-list density="compact" nav>
           <v-list-item
-            prepend-icon="mdi-folder"
-            title="My Files"
-            value="myfiles"
-          ></v-list-item>
-          <v-list-item
-            prepend-icon="mdi-account-multiple"
-            title="Shared with me"
-            value="shared"
-          ></v-list-item>
-          <v-list-item
-            prepend-icon="mdi-star"
-            title="Starred"
-            value="starred"
+            v-for="(item, index) in store.items"
+            :key="index"
+            :prepend-icon="item.icon"
+            :title="item.name"
+            :value="index"
+            @click="onNavigate(item.url)"
           ></v-list-item>
         </v-list>
       </v-navigation-drawer>
 
-      <v-main style="height: 250px"></v-main>
+      <v-main class="main"> <router-view /></v-main>
     </v-layout>
   </v-card>
 </template>
 <script lang="ts">
+import { useSidebarStore } from '../stores/Sidebar.store';
+
 export default {
   name: 'sidebar',
+  data() {
+    return {
+      store: useSidebarStore(),
+    };
+  },
+  methods: {
+    onNavigate(url: string) {
+      this.$router.push(`/${url}`);
+    },
+  },
 };
 </script>
-<style lang=""></style>
+<style lang="scss">
+.main {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+</style>

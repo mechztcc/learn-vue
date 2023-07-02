@@ -1,7 +1,5 @@
-<template lang="">
+<template>
   <div>Home page</div>
 </template>
-<script>
-export default {};
-</script>
+<script setup></script>
 <style lang="ts"></style>

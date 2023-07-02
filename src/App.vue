@@ -1,9 +1,6 @@
 <template>
-  <div class="global-wrapper">
-    <notifications />
-    <Sidebar />
-    <router-view />
-  </div>
+  <notifications />
+  <Sidebar />
 </template>
 
 <script lang="ts">
