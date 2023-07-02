@@ -1,5 +1,6 @@
 <template>
   <notifications />
+
   <Sidebar />
 </template>
 
