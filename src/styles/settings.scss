@@ -9,13 +9,17 @@
 //   $color-pack: false
 // );
 
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&display=swap');
+
+* {
+  font-family: 'Rajdhani', sans-serif;
+}
 .global-wrapper {
   min-height: 100vh !important;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .text-gray {
   color: rgb(83, 82, 82);
