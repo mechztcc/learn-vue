@@ -1,10 +1,12 @@
 // stores/counter.js
 import { defineStore } from 'pinia';
+import { hasSession } from '../services/LocalStorageService';
 
 export const useSidebarStore = defineStore('sidebar', {
   state: () => {
     return {
       isOpened: true,
+      hasToken: hasSession(),
       items: [
         {
           name: 'Início',
@@ -50,6 +52,10 @@ export const useSidebarStore = defineStore('sidebar', {
 
     onHandleSize() {
       this.isOpened = !this.isOpened;
+    },
+
+    onFindToken() {
+      this.hasToken = hasSession();
     },
   },
 });

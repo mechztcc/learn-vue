@@ -1,12 +1,12 @@
 <template>
   <notifications />
-  <Sidebar v-if="show" />
   <router-view />
 </template>
 
 <script lang="ts">
 import Sidebar from './modules/shared/components/Sidebar.vue';
-import { hasSession } from './modules/shared/services/LocalStorageService';
+import { useSidebarStore } from './modules/shared/stores/Sidebar.store';
+
 export default {
   name: 'app-vue',
   components: {
@@ -14,12 +14,14 @@ export default {
   },
   data() {
     return {
-      show: false,
+      store: useSidebarStore(),
     };
   },
 
-  beforeMount() {
-    this.show = hasSession();
-  },
+  created() {
+
+  }
+
+
 };
 </script>

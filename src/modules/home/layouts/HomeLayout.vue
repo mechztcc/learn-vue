@@ -1,11 +1,15 @@
 <template>
-  <div>Home page</div>
+  <Sidebar v-if="store.hasToken" />
 </template>
-<script>
+<script lang="ts">
 import { useSidebarStore } from '../../shared/stores/Sidebar.store';
+import Sidebar from '../../shared/components/Sidebar.vue';
 
 export default {
   name: 'home-layout',
+  components: {
+    Sidebar,
+  },
   data() {
     return {
       store: useSidebarStore(),

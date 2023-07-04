@@ -76,12 +76,14 @@
 <script lang="ts">
 import { ILogin } from '../types/login.interface';
 import { login } from '../services/UserService';
-import { save, clear } from '../../shared/services/LocalStorageService';
+import { clear, save } from '../../shared/services/LocalStorageService';
+import { useSidebarStore } from '../../shared/stores/Sidebar.store';
 
 export default {
   name: 'login-layout',
   data() {
     return {
+      store: useSidebarStore(),
       form: {
         document: '',
         password: '',
@@ -99,9 +101,10 @@ export default {
     };
   },
 
-  setup() {
+  created() {
     clear();
   },
+
   methods: {
     async validateForm() {
       const { valid } = await (this.$refs as any).form.validate();

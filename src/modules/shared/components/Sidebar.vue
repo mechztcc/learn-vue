@@ -11,7 +11,7 @@
         </template>
       </v-app-bar>
 
-      <v-navigation-drawer :elevation="5" v-model="store.isOpened">
+      <v-navigation-drawer :elevation="5" v-model="store.isOpened" temporary>
         <v-list>
           <v-list-item
             title="Sandra Adams"
