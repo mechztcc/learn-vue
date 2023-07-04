@@ -1,6 +1,6 @@
 <template>
   <notifications />
-  <router-view />
+  <Sidebar />
 </template>
 
 <script lang="ts">
@@ -18,10 +18,6 @@ export default {
     };
   },
 
-  created() {
-
-  }
-
-
+  created() {},
 };
 </script>

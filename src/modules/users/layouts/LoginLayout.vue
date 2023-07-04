@@ -101,9 +101,9 @@ export default {
     };
   },
 
-  created() {
-    clear();
-  },
+  setup() {},
+
+  created() {},
 
   methods: {
     async validateForm() {
@@ -125,7 +125,7 @@ export default {
         return;
       }
 
-      this.$router.push('/');
+      window.location.href = '/';
     },
 
     changeVisibility() {
