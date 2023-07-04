@@ -1,7 +1,7 @@
 <template>
-  <div class="pa-4 pa-md-4 pa-lg-4">
-    <v-container class="background rounded-xl pa-10">
-      <v-row no-gutters>
+  <v-col cols="12">
+    <v-card class="pa-5 background rounded-xl ma-12">
+      <v-row>
         <v-col cols="12" md="6" lg="6" class="d-flex flex-column align-start justify-center">
           <h1 class="mb-4">Descubra as melhores ofertas de seguros e proteja o que mais importa para você!</h1>
           <h4 class="mb-5 text-gray">
@@ -48,8 +48,8 @@
           </v-container>
         </v-col>
       </v-row>
-    </v-container>
-  </div>
+    </v-card>
+  </v-col>
 </template>
 <script lang="ts">
 import { test } from 'node:test';
@@ -75,7 +75,7 @@ export default {
 </script>
 <style lang="scss">
 .background {
-  background-color: rgb(227, 232, 232);
+  background-color: rgb(241, 244, 244);
 }
 
 .card:hover {

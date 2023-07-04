@@ -75,10 +75,5 @@ export default {
 <style lang="scss">
 .full-size {
   min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 </style>

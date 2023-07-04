@@ -1,9 +1,5 @@
 <template>
   <GiftContent />
-  <GiftContent />
-  <GiftContent />
-  <GiftContent />
-  <GiftContent />
 </template>
 <script lang="ts">
 import { useSidebarStore } from '../../shared/stores/Sidebar.store';
