@@ -8,6 +8,7 @@ import Sidebar from '../../shared/components/Sidebar.vue';
 import GiftContent from '../components/GiftContent.vue';
 import AccountBalance from '../components/AccountBalance.vue';
 
+
 export default {
   name: 'home-layout',
   components: {

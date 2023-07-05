@@ -5,8 +5,8 @@
         <div class="d-flex justify-space-between align-center">
           <v-icon class="bg-secondary pa-5 rounded-xl">mdi-currency-usd</v-icon>
           <div class="d-flex align-center">
-            <h3>150,00</h3>
-            <v-btn  color="secondary" icon="mdi-tag-plus" class="mx-2"></v-btn>
+            <h3>{{ info.balance }}</h3>
+            <v-btn color="secondary" icon="mdi-tag-plus" class="mx-2"></v-btn>
           </div>
         </div>
       </v-card>
@@ -14,8 +14,26 @@
   </v-container>
 </template>
 <script lang="ts">
+import { mapActions } from 'pinia';
+import { useHomeStore } from '../stores/Home.store';
+import { IBalanceInfo } from '../types/BalanceInfo.interface';
+
 export default {
   name: 'account-balance-component',
+  data() {
+    return {
+      store: useHomeStore(),
+      info: {} as IBalanceInfo,
+    };
+  },
+
+  created() {
+    this.info = this.store.info;
+  },
+
+  methods: {
+    ...mapActions(useHomeStore, ['onAddInfo']),
+  },
 };
 </script>
 <style lang="scss">

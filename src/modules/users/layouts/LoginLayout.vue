@@ -101,12 +101,14 @@ export default {
 
       const data = await login(payload);
       save('token', data.token);
+      save('userId', data.userId);
 
       if (!data) {
         return;
       }
 
       window.location.href = '/';
+      //this.$router.push('/');
     },
 
     changeVisibility() {
