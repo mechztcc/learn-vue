@@ -7,7 +7,7 @@
           <h4 class="mb-5 text-gray">
             Seja para proteger sua casa, carro, saúde ou até mesmo sua vida, as ofertas de seguros oferecem tranquilidade e segurança em diversas situações imprevistas. Com coberturas abrangentes e planos personalizados, você pode ter a certeza de que estará amparado caso algo inesperado aconteça.
           </h4>
-          <v-btn outline color="secondary" rounded="xl" size="x-large" variant="outlined" append-icon="mdi-chevron-right" @click="test()">Learn more</v-btn>
+          <v-btn outline color="secondary" rounded="xl" size="x-large" variant="tonal" append-icon="mdi-chevron-right" @click="test()">Learn more</v-btn>
         </v-col>
         <v-col cols="12" md="6" lg="6">
           <v-container>
