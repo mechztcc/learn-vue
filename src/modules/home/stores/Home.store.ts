@@ -14,8 +14,12 @@ export const useHomeStore = defineStore('home', {
   },
 
   actions: {
-    onAddInfo(info: any) {
-      this.info = info;
+    onAddInfo(balance: number) {
+      this.info.balance = balance;
+    },
+
+    onAddBalance(value: number) {
+      this.info.balance = value;
     },
   },
 

@@ -18,6 +18,9 @@ import { mapActions } from 'pinia';
 import { useHomeStore } from '../stores/Home.store';
 import { IBalanceInfo } from '../types/BalanceInfo.interface';
 
+import { onFindBalance } from '../../account/services/AccountService';
+import { get } from '../../shared/services/LocalStorageService';
+
 export default {
   name: 'account-balance-component',
   data() {
@@ -29,6 +32,14 @@ export default {
 
   created() {
     this.info = this.store.info;
+  },
+
+  async beforeMount() {
+    const id = await get('userId');
+    console.log(id);
+
+    const balance = await onFindBalance(id);
+    this.onAddInfo(balance.accountBalance);
   },
 
   methods: {

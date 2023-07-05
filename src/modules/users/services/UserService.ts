@@ -21,10 +21,6 @@ export async function login(payload: ILogin): Promise<any> {
     const store = useHomeStore();
     const data = await axios.post(`${auth}`, payload);
 
-    store.onAddInfo(data);
-
-    console.log(store.info);
-
     return data;
   } catch (error) {
     console.log(error);

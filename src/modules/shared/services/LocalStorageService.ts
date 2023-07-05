@@ -3,7 +3,8 @@ export async function save(name: string, item: string) {
 }
 
 export async function get(name: string) {
-  return localStorage.getItem(name);
+  const userId = localStorage.getItem(name);
+  return Number(userId)
 }
 
 export function hasSession() {
