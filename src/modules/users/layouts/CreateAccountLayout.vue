@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="d-flex align-center" style="min-height: 100vh">
     <v-col cols="10" md="6" lg="4" offset="1" offset-md="3" offset-lg="4">
       <v-form ref="form" lazy-validation>
         <h1>Welcome to your account</h1>

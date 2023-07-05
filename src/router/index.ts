@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
   const store = useSidebarStore();
   const token = hasSession();
 
-  if (!token && to.path !== '/login') {
+  if (!token && to.path !== '/login' && to.path !== '/create-account') {
     next({ name: 'login' });
   } else {
     next();

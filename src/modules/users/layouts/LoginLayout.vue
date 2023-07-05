@@ -1,20 +1,10 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="d-flex align-center" style="min-height: 100vh">
     <v-col cols="10" md="6" lg="4" offset="1" offset-md="3" offset-lg="4">
       <v-form ref="form" lazy-validation>
         <h1>Welcome back</h1>
-        <h4 class="text-gray">
-          Start managing your bank account faster and better
-        </h4>
-        <v-text-field
-          v-model="form.document"
-          :rules="form.rules.documentRules"
-          name="document"
-          label="Document number"
-          variant="outlined"
-          hint="Enter your Document number"
-          class="mt-5"
-        ></v-text-field>
+        <h4 class="text-gray">Start managing your bank account faster and better</h4>
+        <v-text-field v-model="form.document" :rules="form.rules.documentRules" name="document" label="Document number" variant="outlined" hint="Enter your Document number" class="mt-5"></v-text-field>
 
         <v-text-field
           v-if="form.passType"
@@ -48,9 +38,7 @@
 
         <h4 class="text-end ma-3 text-secondary">Forgot password?</h4>
 
-        <v-btn size="x-large" color="secondary w-100" @click="validateForm()">
-          Sign in
-        </v-btn>
+        <v-btn size="x-large" color="secondary w-100" @click="validateForm()"> Sign in </v-btn>
       </v-form>
 
       <div class="d-flex ma-4">
@@ -65,19 +53,17 @@
       </div>
 
       <router-link to="/create-account">
-        <h4 class="text-center mt-5 text-gray">
-          Dont you have account? <b class="text-secondary">Sign up</b>
-        </h4>
+        <h4 class="text-center mt-5 text-gray">Dont you have account? <b class="text-secondary">Sign up</b></h4>
       </router-link>
     </v-col>
   </v-container>
 </template>
 
 <script lang="ts">
-import { ILogin } from '../types/login.interface';
-import { login } from '../services/UserService';
-import { clear, save } from '../../shared/services/LocalStorageService';
+import { save } from '../../shared/services/LocalStorageService';
 import { useSidebarStore } from '../../shared/stores/Sidebar.store';
+import { login } from '../services/UserService';
+import { ILogin } from '../types/login.interface';
 
 export default {
   name: 'login-layout',
@@ -89,12 +75,7 @@ export default {
         password: '',
         passType: true,
         rules: {
-          documentRules: [
-            (doc: string) => !!doc || 'Document is required',
-            (doc: string) =>
-              (doc && doc.length >= 11) ||
-              'Document require at least 11 characteres',
-          ],
+          documentRules: [(doc: string) => !!doc || 'Document is required', (doc: string) => (doc && doc.length >= 11) || 'Document require at least 11 characteres'],
           passwordRules: [(pass: string) => !!pass || 'Password is required'],
         },
       },
@@ -134,3 +115,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.full-size {
+  min-height: 100vh;
+}
+</style>
