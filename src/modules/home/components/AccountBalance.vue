@@ -1,12 +1,16 @@
 <template>
   ,<v-container fluid>
     <v-col cols="12" md="6" lg="3" offset-md="6" offset-lg="9">
-      <v-card class="rounded-pill pa-2 elevation-0 border mr-10">
+      <v-card :loading="isLoading" class="rounded-pill pa-2 elevation-0 border mr-10">
         <div class="d-flex justify-space-between align-center">
           <v-icon class="bg-secondary pa-5 rounded-xl">mdi-currency-usd</v-icon>
-          <div class="d-flex align-center">
+          <div class="d-flex align-center" v-if="!isLoading">
             <h3>{{ info.balance }}</h3>
             <v-btn color="secondary" icon="mdi-tag-plus" class="mx-2"></v-btn>
+          </div>
+          <div class="d-flex align-center" v-if="isLoading">
+            <h3><v-icon>mdi-dots-horizontal</v-icon></h3>
+            <v-btn color="secondary" icon="mdi-dots-horizontal" disabled class="mx-2"></v-btn>
           </div>
         </div>
       </v-card>
@@ -27,6 +31,7 @@ export default {
     return {
       store: useHomeStore(),
       info: {} as IBalanceInfo,
+      isLoading: false,
     };
   },
 
@@ -35,10 +40,12 @@ export default {
   },
 
   async beforeMount() {
+    this.isLoading = true;
     const id = await get('userId');
-    console.log(id);
 
     const balance = await onFindBalance(id);
+
+    this.isLoading = false;
     this.onAddInfo(balance.accountBalance);
   },
 

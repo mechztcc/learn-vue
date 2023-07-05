@@ -52,8 +52,6 @@
   </v-col>
 </template>
 <script lang="ts">
-import { test } from 'node:test';
-
 export default {
   name: 'gift-content-component',
   data() {

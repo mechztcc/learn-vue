@@ -18,6 +18,7 @@
           prepend-inner-icon="mdi-lock"
           append-inner-icon="mdi-eye"
           type="password"
+          mask="credit-card"
           @click:append-inner="changeVisibility()"
         ></v-text-field>
 
@@ -64,6 +65,7 @@ import { save } from '../../shared/services/LocalStorageService';
 import { useSidebarStore } from '../../shared/stores/Sidebar.store';
 import { login } from '../services/UserService';
 import { ILogin } from '../types/login.interface';
+
 
 export default {
   name: 'login-layout',
