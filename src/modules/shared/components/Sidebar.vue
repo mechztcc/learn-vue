@@ -14,7 +14,12 @@
         </v-list>
         <v-divider></v-divider>
         <v-list density="compact" nav>
-          <v-list-item v-for="(item, index) in store.items" :key="index" :prepend-icon="item.icon" :title="item.name" :value="index" @click="onNavigate(item.url)"></v-list-item>
+          <v-list-item v-for="(item, index) in store.items"
+          :key="index" :prepend-icon="item.icon"
+          :title="item.name" :value="index"
+          :active="item.isActive"
+          :active-class="'bg-secondary'"
+          @click="onNavigate(item.url, index)"></v-list-item>
         </v-list>
       </v-navigation-drawer>
 
@@ -45,7 +50,9 @@ export default {
   watch: {},
 
   methods: {
-    onNavigate(url: string) {
+    onNavigate(url: string, index: number) {
+      this.store.onActiveItem(index);
+
       if (url === 'login') {
         clear();
         window.location.href = '/login';
@@ -54,6 +61,7 @@ export default {
       if (url === 'pix-area') {
         this.$router.push(`/${url}`);
       }
+
       if (url === 'home') {
         this.$router.push('/');
       }

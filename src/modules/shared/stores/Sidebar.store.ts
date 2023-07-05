@@ -1,6 +1,7 @@
 // stores/counter.js
 import { defineStore } from 'pinia';
 import { hasSession } from '../services/LocalStorageService';
+import { log } from 'node:console';
 
 export const useSidebarStore = defineStore('sidebar', {
   state: () => {
@@ -10,7 +11,7 @@ export const useSidebarStore = defineStore('sidebar', {
       items: [
         {
           name: 'Início',
-          isActive: false,
+          isActive: true,
           icon: 'mdi-home-variant',
           url: 'home',
         },
