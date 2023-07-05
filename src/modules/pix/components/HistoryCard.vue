@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mt-4 pa-3 rounded-xl background" variant="tonal">
+  <v-card class="mt-4 pa-3 rounded-xl background elevation-0">
     <v-container>
       <div class="d-flex justify-space-between align-center">
         <v-img class="rounded-pill img-size" src="@/assets/imgs/mamaco.jpg"></v-img>
@@ -7,12 +7,12 @@
           <h2>Transferência realizada</h2>
           <h4>R$ 800, 00</h4>
         </div>
-        <v-icon>mdi-dots-horizontal</v-icon>
+        <v-icon>mdi-chevron-down</v-icon>
       </div>
     </v-container>
   </v-card>
 </template>
-<script>
+<script lang="ts">
 export default {
   name: 'history-card',
   data() {
