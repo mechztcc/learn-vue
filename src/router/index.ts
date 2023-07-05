@@ -15,6 +15,11 @@ const routes = [
     component: () => import('@/modules/users/layouts/CreateAccountLayout.vue'),
   },
   {
+    path: '/pix-area',
+    name: 'pix',
+    component: () => import('@/modules/pix/layouts/PixLayout.vue'),
+  },
+  {
     path: '/',
     name: 'home',
     component: () => import('@/modules/home/layouts/HomeLayout.vue'),

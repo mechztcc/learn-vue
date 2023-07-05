@@ -12,7 +12,7 @@ export const useSidebarStore = defineStore('sidebar', {
           name: 'Início',
           isActive: false,
           icon: 'mdi-home-variant',
-          url: '',
+          url: 'home',
         },
         {
           name: 'Cartões',
