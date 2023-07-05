@@ -8,7 +8,7 @@
           <h1>Histórico de transações</h1>
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field  prepend-inner-icon="mdi-magnify" label="Nome do usuário" variant="outlined"></v-text-field>
+          <v-text-field ref="input" prepend-inner-icon="mdi-magnify" label="Nome do usuário" variant="outlined"></v-text-field>
         </v-col>
       </v-row>
     </v-col>
@@ -38,6 +38,10 @@ export default {
     return {
       store: usePixStore(),
     };
+  },
+
+  mounted() {
+    this.$refs.input.focus();
   },
 
   methods: {
