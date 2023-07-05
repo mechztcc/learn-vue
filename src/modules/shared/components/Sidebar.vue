@@ -1,14 +1,14 @@
 <template v-slot:activator>
   <v-card>
     <v-layout>
-      <v-app-bar :elevation="5" color="secondary" v-if="show">
+      <v-app-bar :elevation="5" color="secondary" v-if="show" height="80">
         <v-app-bar-nav-icon variant="text" @click.stop="store.onHandleSize()"></v-app-bar-nav-icon>
         <template v-slot:append>
           <v-btn icon="mdi-bell-remove"></v-btn>
         </template>
       </v-app-bar>
 
-      <v-navigation-drawer :elevation="5" v-model="store.isOpened" temporary v-if="show">
+      <v-navigation-drawer :elevation="5" v-model="store.isOpened" temporary v-if="show" >
         <v-list>
           <v-list-item title="Sandra Adams" subtitle="sandra_a88@gmailcom"></v-list-item>
         </v-list>

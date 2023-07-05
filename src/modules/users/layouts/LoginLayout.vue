@@ -39,7 +39,7 @@
 
         <h4 class="text-end ma-3 text-secondary">Forgot password?</h4>
 
-        <v-btn size="x-large" color="secondary w-100" @click="validateForm()"> Sign in </v-btn>
+        <v-btn size="x-large" color="secondary w-100" class="elevation-0 rounded-xl" @click="validateForm()"> Sign in </v-btn>
       </v-form>
 
       <div class="d-flex ma-4">
@@ -49,8 +49,8 @@
       </div>
 
       <div class="d-flex justify-space-around">
-        <v-btn prepend-icon="mdi-google" variant="tonal"> Google </v-btn>
-        <v-btn prepend-icon="mdi-facebook" variant="tonal"> Facebook </v-btn>
+        <v-btn prepend-icon="mdi-google" class="rounded-xl" variant="tonal"> Google </v-btn>
+        <v-btn prepend-icon="mdi-facebook" class="rounded-xl" variant="tonal"> Facebook </v-btn>
       </div>
 
       <router-link to="/create-account">
@@ -65,7 +65,6 @@ import { save } from '../../shared/services/LocalStorageService';
 import { useSidebarStore } from '../../shared/stores/Sidebar.store';
 import { login } from '../services/UserService';
 import { ILogin } from '../types/login.interface';
-
 
 export default {
   name: 'login-layout',
@@ -84,9 +83,22 @@ export default {
     };
   },
 
-  setup() {},
+  watch: {
+    form: {
+      deep: true,
+      handler(nu, old) {
+        this.hasCompleted;
+      },
+    },
+  },
 
-  created() {},
+  computed: {
+    hasCompleted() {
+      if (this.form.document && this.form.password.length > 7) {
+        console.log('Pronto para submeter');
+      }
+    },
+  },
 
   methods: {
     async validateForm() {
