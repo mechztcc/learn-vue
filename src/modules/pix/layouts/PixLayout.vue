@@ -1,8 +1,18 @@
 <template>
   <v-container>
+    <BackNavigation @click="navigate()" />
     <CreateTransfer />
     <v-col cols="12">
-      <h1>Histórico de transações</h1>
+      <v-row>
+        <v-col cols="12" md="6">
+          <h1>Histórico de transações</h1>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field  prepend-inner-icon="mdi-magnify" label="Nome do usuário" variant="outlined"></v-text-field>
+        </v-col>
+      </v-row>
+    </v-col>
+    <v-col cols="12">
       <HistoryCard v-for="(item, i) in 5" :key="i" />
     </v-col>
     <v-col cols="6" offset="6">
@@ -15,17 +25,25 @@ import HistoryCard from '../components/HistoryCard.vue';
 import CreateTransfer from '../components/CreateTransfer.vue';
 import { transferHistory } from '../services/PixService';
 import { usePixStore } from '../stores/Pix.store';
+import BackNavigation from '../../shared/components/BackNavigation.vue';
 
 export default {
   name: 'pix-layout',
   components: {
     HistoryCard,
     CreateTransfer,
+    BackNavigation,
   },
   data() {
     return {
       store: usePixStore(),
     };
+  },
+
+  methods: {
+    navigate() {
+      window.history.back();
+    },
   },
 
   async created() {
