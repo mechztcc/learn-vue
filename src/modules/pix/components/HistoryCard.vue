@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mt-4 pa-3 rounded-xl background elevation-0">
+  <v-card class="mt-4 pa-3 rounded-xl border elevation-0">
     <v-container>
       <div class="d-flex justify-space-between align-center">
         <div class="d-flex flex-column">
@@ -33,4 +33,5 @@ export default {
   min-width: 60px;
   max-width: 60px;
 }
+
 </style>
