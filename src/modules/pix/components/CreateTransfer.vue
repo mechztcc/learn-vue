@@ -74,10 +74,10 @@ export default {
       const payload: IMakeTransfer = {
         receiverCode: '128322b5-e14b-47a8-82e7-20ae5210d722',
         shipperCode: '128322b5-e14b-47a8-82e7-20ae5210d722',
-        value: this.form.value as number,
+        value: Number(this.form.value),
       };
 
-      const data = await makeTransfer(payload).then(() => ((this.isLoading = false), this.$refs.form.reset()));
+      const data = await makeTransfer(payload).then(() => ((this.isLoading = false), (this.$refs as any).form.reset()));
     },
   },
 };

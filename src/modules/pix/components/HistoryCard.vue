@@ -8,7 +8,8 @@
         </div>
         <div class="d-flex flex-column">
           <h2>Transferência realizada</h2>
-          <h4>R$ 800, 00</h4>
+          <span class="text-gray">{{ new Date(history.created_at).toLocaleDateString() }}</span>
+          <h4>R$ {{ history.value }}</h4>
         </div>
         <v-icon>mdi-chevron-down</v-icon>
       </div>
@@ -22,6 +23,13 @@ export default {
     return {};
   },
 
+  props: {
+    history: {
+      type: Object,
+      required: true,
+    },
+  },
+
   async created() {},
 };
 </script>
@@ -33,5 +41,4 @@ export default {
   min-width: 60px;
   max-width: 60px;
 }
-
 </style>

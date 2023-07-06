@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia';
+import { IHistory } from '../types/History.interface';
 
 export const usePixStore = defineStore('pix', {
   state: () => {
     return {
       data: {
-        value: 1,
+        history: [] as IHistory[],
       },
     };
   },

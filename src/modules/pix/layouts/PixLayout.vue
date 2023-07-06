@@ -13,10 +13,10 @@
       </v-row>
     </v-col>
     <v-col cols="12">
-      <HistoryCard v-for="(item, i) in 5" :key="i" />
+      <HistoryCard v-for="(item, i) in store.data.history" :key="i" :history="item" />
     </v-col>
     <v-col cols="6" offset="6">
-      <v-pagination :length="4"></v-pagination>
+      <v-pagination  length="2"></v-pagination>
     </v-col>
   </v-container>
 </template>
@@ -41,7 +41,7 @@ export default {
   },
 
   mounted() {
-    this.$refs.input.focus();
+    (this.$refs as any).input.focus();
   },
 
   methods: {
@@ -52,7 +52,7 @@ export default {
 
   async created() {
     const data = await transferHistory();
-    console.log(this.store.data.value);
+    this.store.data.history = data;
   },
 };
 </script>
