@@ -86,9 +86,7 @@ export default {
   watch: {
     form: {
       deep: true,
-      handler(nu, old) {
-        this.hasCompleted;
-      },
+      handler(nu, old) {},
     },
   },
 
